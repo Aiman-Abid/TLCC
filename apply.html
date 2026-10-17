@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
 </head>
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="header">
     <div class="top-bar">
         <div class="container top-content">
@@ -19,22 +21,68 @@
         </div>
     </div>
 
-    <nav class="navbar">
-        <div class="logo">
+    <nav class="navbar" aria-label="Main navigation">
+
+        <!-- LOGO -->
+        <a href="index.html#home" class="logo">
             <img src="res/img/img.png" alt="College Logo">
             <div class="logo-text">
-                <div>The Lahore City College</div>
-                <span>Zafarwal</span>
+                <small class="the">The</small>
+                <div class="college">Lahore City College</div>
+                <span class="place">Zafarwal</span>
             </div>
-        </div>
+        </a>
 
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
-            <span></span><span></span><span></span>
+        <!-- MOBILE MENU BUTTON -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
+        <!-- ================= NAV LINKS ================= -->
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#programs">Programs</a></li>
+
+            <li class="dropdown">
+                <a href="index.html#about">About <span class="arrow">⌄</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#about">Our About</a></li>
+                    <li><a href="index.html#welcome-slide">College Introduction</a></li>
+                    <li><a href="principal.html">Principal Message</a></li>
+                    <li><a href="vision.html">Vision &amp; Mission</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="index.html#programs">Programs <span class="arrow">⌄</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="ics-details.html">ICS</a></li>
+                    <li><a href="pre-medical-details.html">Pre-Medical</a></li>
+                    <li><a href="pre-engineering-details.html">Pre-Engineering</a></li>
+                    <li><a href="fa-details.html">F.A</a></li>
+                    <li><a href="commerce-details.html">Commerce</a></li>
+                    <li><a href="dit-details.html">DIT</a></li>
+                    <li class="has-submenu">
+                        <a href="bs-programs.html">BS Programs <span class="arrow-right">›</span></a>
+                        <ul class="submenu">
+                            <li><a href="bs-physics-details.html">Bachelor of Science in Physics</a></li>
+                            <li><a href="bs-chemistry-details.html">Bachelor of Science in Chemistry</a></li>
+                            <li><a href="bs-computer-details.html">Bachelor of Science in Computer</a></li>
+                            <li><a href="bs-english-details.html">Bachelor of Science in English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="index.html#admissions">Admissions</a></li>
+            <li><a href="index.html#news-events">News &amp; Events</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
 
@@ -49,14 +97,15 @@
     </div>
 </section>
 
+<!-- ================= MAIN CONTENT ================= -->
 <main>
 <section class="section">
-    <div class="container" style="max-width: 700px; margin: 0 auto;">
+    <div class="container" style="max-width: 700px; margin: 0 auto; padding: 0 15px;">
         
-        <!-- Back Button Added Here -->
-        <a href="javascript:history.back()" class="back-btn" style="display: inline-block; margin-bottom: 20px; font-weight: 500; color: #eaecee; text-decoration: none;">← Go Back</a>
+        <!-- Back Button -->
+        <a href="javascript:history.back()" class="back-btn" style="display: inline-block; margin-bottom: 20px; font-weight: 500; color: #073b7a; text-decoration: none;">← Go Back</a>
 
-        <div style="background: #faf8f8; padding: 40px; border-radius: 10px; box-shadow: 0 4px 20px rgba(168, 22, 22, 0.08);">
+        <div style="background: #faf8f8; padding: 30px; border-radius: 10px; box-shadow: 0 4px 20px rgba(7, 59, 122, 0.08);">
             <div class="section-title" style="text-align: center; margin-bottom: 30px;">
                 <span class="section-tag">ADMISSION PORTAL</span>
                 <h2>Student Registration Form</h2>
@@ -66,7 +115,7 @@
             <!-- Application Form Connected with Web3Forms -->
             <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
                 
-                <!-- Web3Forms Access Key (Yahan apni free key lagayein jo web3forms.com se mile gi) -->
+                <!-- Web3Forms Access Key -->
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
 
                 <!-- Email Subject Header -->
@@ -74,22 +123,22 @@
 
                 <div>
                     <label style="display: block; margin-bottom: 8px; font-weight: 500;">Full Name</label>
-                    <input type="text" name="full_name" placeholder="Enter your full name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif;">
+                    <input type="text" name="full_name" placeholder="Enter your full name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
                 </div>
 
                 <div>
                     <label style="display: block; margin-bottom: 8px; font-weight: 500;">Father's Name</label>
-                    <input type="text" name="father_name" placeholder="Enter father's name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif;">
+                    <input type="text" name="father_name" placeholder="Enter father's name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
                 </div>
 
                 <div>
                     <label style="display: block; margin-bottom: 8px; font-weight: 500;">Phone Number (WhatsApp)</label>
-                    <input type="tel" name="phone_number" placeholder="03XXXXXXXXX" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif;">
+                    <input type="tel" name="phone_number" placeholder="03XXXXXXXXX" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
                 </div>
 
                 <div>
                     <label style="display: block; margin-bottom: 8px; font-weight: 500;">Select Program / Course</label>
-                    <select id="courseSelect" name="selected_program" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; background: #fff;">
+                    <select id="courseSelect" name="selected_program" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; background: #fff; box-sizing: border-box;">
                         <option value="">-- Choose Course / Program --</option>
                         <optgroup label="Intermediate Programs">
                             <option value="ICS">ICS (Information Computer Science)</option>
@@ -99,7 +148,7 @@
                             <option value="Commerce">Commerce</option>
                         </optgroup>
                         <optgroup label="Technical & Diplomas">
-                            <option value="DLD">DLD (Digital Logic Design)</option>
+                            <option value="DIT">DIT (Diploma in Information Technology)</option>
                         </optgroup>
                         <optgroup label="BS Programs">
                             <option value="BS Physics">BS Physics</option>
@@ -119,10 +168,10 @@
 
                 <div>
                     <label style="display: block; margin-bottom: 8px; font-weight: 500;">Home Address / City</label>
-                    <input type="text" name="address" placeholder="e.g. Darman Road, Zafarwal" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif;">
+                    <input type="text" name="address" placeholder="e.g. Darman Road, Zafarwal" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
                 </div>
 
-                <button type="submit" class="btn primary-btn" style="width: 100%; padding: 14px; background: #002D62; color: #fff; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: background 0.3s;">Submit Application</button>
+                <button type="submit" class="btn primary-btn" style="width: 100%; padding: 14px; background: #073b7a; color: #fff; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: background 0.3s;">Submit Application</button>
             </form>
         </div>
 
@@ -130,11 +179,78 @@
 </section>
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
-    <div class="container footer-bottom">
-        <p>© <span id="year"></span> The Lahore City College Zafarwal. All Rights Reserved.</p>
+
+    <div class="container footer-grid">
+
+        <div class="footer-about">
+            <div class="footer-logo">
+                <img src="res/img/img.png" alt="Lahore City College Zafarwal Logo">
+                <div>
+                    <h3>Lahore City College</h3>
+                    <p>of Zafarwal</p>
+                </div>
+            </div>
+            <p>Providing quality education and preparing students for a successful future.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About Us</a>
+            <a href="index.html#programs">Programs</a>
+            <a href="index.html#news-events">News &amp; Events</a>
+            <a href="index.html#admissions">Admissions</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Useful Links</h3>
+            <a href="index.html#news-events">News &amp; Events</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="#">Student Portal</a>
+            <a href="#">Results</a>
+            <a href="#">Downloads</a>
+        </div>
+
+        <div class="footer-newsletter">
+            <h3>Stay Connected</h3>
+            <p>Subscribe to receive college news and admission updates.</p>
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Your email" aria-label="Your email" required>
+                <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
+            </form>
+        </div>
+
     </div>
+
+    <div class="footer-credit">
+        <p>Creative By <strong>Aiman Abid</strong></p>
+        <p>Email:
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aiman1259abid@gmail.com"
+               target="_blank" rel="noopener noreferrer">
+                aiman1259abid@gmail.com
+            </a>
+        </p>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>© <span id="year"></span> The Lahore City College Zafarwal. All Rights Reserved.</p>
+        </div>
+    </div>
+
 </footer>
+
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
 <script src="js/script.js"></script>
 <script>
