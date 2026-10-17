@@ -104,8 +104,8 @@ const newsData = {
                 image: "res/img/newfaculty4.jpg", 
                 detailImage: "res/img/faculty4.jpg", 
                 title: "BS Coordinator", 
-                description: "Physics teacher and BS Coordinator dedicated to academic excellence and student mentorship.", 
-                info: "Serves as the BS Coordinator and Physics teacher at The Lahore City College Zafarwal, committed to academic excellence and student mentorship. Dedicated to fostering a rigorous and supportive learning environment for all BS students. Oversees the planning, implementation and continuous improvement of the BS program. Responsibilities include curriculum coordination, course scheduling and alignment with national academic standards. Works closely with faculty members to ensure high-quality teaching and consistent assessment practices. Student guidance is a core priority, with regular advising on course selection, academic progress and career pathways. Ensures that students receive timely support in addressing academic and administrative concerns." 
+                description: "BS Coordinator dedicated to academic excellence and student mentorship.", 
+                info: "Serves as the BS Coordinator at The Lahore City College Zafarwal, committed to academic excellence and student mentorship. Dedicated to fostering a rigorous and supportive learning environment for all BS students. Oversees the planning, implementation and continuous improvement of the BS program. Responsibilities include curriculum coordination, course scheduling and alignment with national academic standards. Works closely with faculty members to ensure high-quality teaching and consistent assessment practices. Student guidance is a core priority, with regular advising on course selection, academic progress and career pathways. Ensures that students receive timely support in addressing academic and administrative concerns." 
             },
             { 
                 image: "res/img/newfaculty1.jpg", 
