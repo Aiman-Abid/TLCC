@@ -771,7 +771,7 @@
 
     </div>
 </section>
-<!-- ================= CONTACT ================= -->
+    <!-- ================= CONTACT ================= -->
 <section class="contact section" id="contact">
     <div class="container">
 
@@ -803,13 +803,13 @@
                 <div class="contact-box">
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                     <div>
-    <h3>Email</h3>
-    <p>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@lccollege.edu.pk" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-            <i class="fas fa-envelope"></i> info@lccollege.edu.pk
-        </a>
-    </p>
-</div>
+                        <h3>Email</h3>
+                        <p>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@lccollege.edu.pk" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-envelope"></i> info@lccollege.edu.pk
+                            </a>
+                        </p>
+                    </div>
                 </div>
 
                 <div class="contact-box">
@@ -825,11 +825,11 @@
             <!-- UPDATED FORM TAG -->
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
 
-                <!-- Web3Forms Access Key (Yahan apni free key lagayein jo web3forms.com se mile gi) -->
+                <!-- Web3Forms Access Key -->
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
 
                 <!-- Optional: Email ka Subject -->
-                <input type="hidden" name="subject" value="New Message from College Website Contact Form">
+                <input type="hidden" name="email_subject" value="New Message from College Website Contact Form">
 
                 <div class="input-row">
                     <div class="input-group">
@@ -843,8 +843,8 @@
                 </div>
 
                 <div class="input-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+                    <label for="msg_subject">Subject</label>
+                    <input type="text" id="msg_subject" name="subject" placeholder="Enter subject" required>
                 </div>
 
                 <div class="input-group">
@@ -861,14 +861,15 @@
         </div>
     </div>
 </section>
-    <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/+92- 3322596777?text=Hello!%20I%20have%20a%20query%20about%20admissions." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+
+<!-- Floating WhatsApp Button (Fixed Number Format) -->
+<a href="https://wa.me/923322596777?text=Hello!%20I%20have%20a%20query%20about%20admissions." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
   <!-- FontAwesome Icon -->
   <i class="fa-brands fa-whatsapp my-whatsapp-icon"></i>
 </a>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-</main>
+<!-- FontAwesome Icons Link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
