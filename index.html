@@ -770,8 +770,7 @@
         </div>
 
     </div>
-</section>
-<!-- ================= CONTACT ================= -->
+</section><!-- ================= CONTACT ================= -->
 <section class="contact section" id="contact">
     <div class="container">
 
@@ -822,34 +821,43 @@
 
             </div>
 
-            <!-- UPDATED FORM TAG -->
+            <!-- CONTACT FORM WITH FIRST NAME & LAST NAME INTEGRATED -->
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
 
                 <!-- Web3Forms Access Key -->
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
 
-                <!-- Optional: Email ka Subject -->
+                <!-- Email Subject -->
                 <input type="hidden" name="email_subject" value="New Message from College Website Contact Form">
 
+                <!-- FIRST NAME & LAST NAME ROW -->
                 <div class="input-row">
                     <div class="input-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" autocomplete="name" required>
+                        <label for="firstName">First Name</label>
+                        <input name="firstName" id="firstName" type="text" placeholder="Enter first name" autocomplete="given-name" required />
                     </div>
                     <div class="input-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required>
+                        <label for="lastName">Last Name</label>
+                        <input name="lastName" id="lastName" type="text" placeholder="Enter last name" autocomplete="family-name" required />
                     </div>
                 </div>
 
+                <!-- EMAIL ROW -->
                 <div class="input-group">
-                    <label for="msg_subject">Subject</label>
-                    <input type="text" id="msg_subject" name="subject" placeholder="Enter subject" required>
+                    <label for="email">Email</label>
+                    <input name="email" id="email" type="email" placeholder="Enter your email" autocomplete="email" required />
                 </div>
 
+                <!-- SUBJECT ROW -->
+                <div class="input-group">
+                    <label for="msg_subject">Subject</label>
+                    <input name="subject" id="msg_subject" type="text" placeholder="Enter subject" autocomplete="off" required />
+                </div>
+
+                <!-- MESSAGE TEXTAREA ROW -->
                 <div class="input-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+                    <textarea name="message" id="message" rows="6" placeholder="Write your message..." autocomplete="off" required></textarea>
                 </div>
 
                 <button type="submit" class="btn primary-btn">
