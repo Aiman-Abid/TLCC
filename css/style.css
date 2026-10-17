@@ -2201,16 +2201,16 @@ section[id],
     margin: 4px 0;
     font-size: 14px;
     line-height: 1.7;
-    color: #f1eded;
+    color: #e79247;
     overflow-wrap: anywhere;
 }
 
 .footer-credit strong {
-    color: var(--orange, #f58220);
+    color: var(--orange, #e79247);
 }
 
 .footer-credit a {
-    color:#f58220;
+    color:#e79247;
     text-decoration: none;
     transition: color 0.3s ease;
 }
