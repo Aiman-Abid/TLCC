@@ -1,15 +1,18 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphic Design Course | Lahore City College Zafarwal</title>
+    <title>BS Computer Science | The Lahore City College Zafarwal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="header">
     <div class="top-bar">
         <div class="container top-content">
@@ -19,29 +22,71 @@
         </div>
     </div>
 
-    <nav class="navbar">
-        <div class="logo">
+    <nav class="navbar" aria-label="Main navigation">
+
+        <!-- LOGO -->
+        <a href="index.html#home" class="logo">
             <img src="res/img/img.png" alt="College Logo">
             <div class="logo-text">
-                <div>The Lahore City College</div>
-                <span>Zafarwal</span>
+                <small class="the">The</small>
+                <div class="college">Lahore City College</div>
+                <span class="place">Zafarwal</span>
             </div>
-        </div>
+        </a>
 
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
-            <span></span><span></span><span></span>
+        <!-- MOBILE MENU BUTTON -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
+        <!-- ================= NAV LINKS ================= -->
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html#home">Home</a></li>
-            <li><a href="short-courses-details.html" class="active">Short Courses</a></li>
+
+            <li class="dropdown">
+                <a href="index.html#about">About <span class="arrow">⌄</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#about">Our About</a></li>
+                    <li><a href="index.html#welcome-slide">College Introduction</a></li>
+                    <li><a href="principal.html">Principal Message</a></li>
+                    <li><a href="vision.html">Vision &amp; Mission</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="index.html#programs" class="active">Programs <span class="arrow">⌄</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="ics-details.html">ICS</a></li>
+                    <li><a href="pre-medical-details.html">Pre-Medical</a></li>
+                    <li><a href="pre-engineering-details.html">Pre-Engineering</a></li>
+                    <li><a href="fa-details.html">F.A</a></li>
+                    <li><a href="commerce-details.html">Commerce</a></li>
+                    <li><a href="dit-details.html">DIT</a></li>
+                    <li class="has-submenu">
+                        <a href="bs-programs.html">BS Programs <span class="arrow-right">›</span></a>
+                        <ul class="submenu">
+                            <li><a href="bs-physics-details.html">Bachelor of Science in Physics</a></li>
+                            <li><a href="bs-chemistry-details.html">Bachelor of Science in Chemistry</a></li>
+                            <li><a href="bs-computer-details.html" class="active">Bachelor of Science in Computer</a></li>
+                            <li><a href="bs-english-details.html">Bachelor of Science in English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="index.html#admissions">Admissions</a></li>
+            <li><a href="index.html#news-events">News &amp; Events</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
-
-        <a href="index.html#contact" class="nav-btn">Apply Now</a>
-    </nav>
 </header>
-
 <section class="page-banner">
     <div class="container">
         <h1>Graphic Design</h1>
@@ -98,10 +143,83 @@
 </section>
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
-    <div class="container footer-bottom">
-        <p>© <span id="year"></span> The Lahore City College Zafarwal. All Rights Reserved.</p>
+
+    <div class="container footer-grid">
+
+        <!-- ABOUT & SOCIAL LINKS -->
+        <div class="footer-about">
+            <div class="footer-logo">
+                <a href="index.html#home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                    <img src="res/img/img.png" alt="Lahore City College Zafarwal Logo">
+                    <div>
+                        <h3>Lahore City College</h3>
+                        <p>of Zafarwal</p>
+                    </div>
+                </a>
+            </div>
+            <p>Providing quality education and preparing students for a successful future.</p>
+            <div class="footer-socials">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About Us</a>
+            <a href="index.html#programs">Programs</a>
+            <a href="index.html#news-events">News &amp; Events</a>
+            <a href="index.html#admissions">Admissions</a>
+        </div>
+
+        <!-- USEFUL LINKS -->
+        <div class="footer-links">
+            <h3>Useful Links</h3>
+            <a href="index.html#news-events">News &amp; Events</a>
+            <a href="index.html#contact">Contact Us</a>
+            <a href="apply.html">Student Admission Portal</a>
+            <a href="apply.html">Apply Online</a>
+            <a href="tel:+923322596777">Helpline Support</a>
+        </div>
+
+        <!-- NEWSLETTER FORM -->
+        <div class="footer-newsletter">
+            <h3>Stay Connected</h3>
+            <p>Subscribe to receive college news and admission updates.</p>
+            <form id="newsletterForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="New Newsletter Subscription">
+                <input type="email" name="email" id="newsletterEmail" placeholder="Your email" aria-label="Your email" required>
+                <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
+            </form>
+        </div>
+
     </div>
+
+    <!-- CREATIVE CREDIT -->
+    <div class="footer-credit">
+        <p>Creative By <strong>Aiman Abid</strong></p>
+        <p>Email:
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aiman1259abid@gmail.com"
+               target="_blank" rel="noopener noreferrer">
+                aiman1259abid@gmail.com
+            </a>
+        </p>
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+        <div class="container">
+            <p>© <span id="year"></span> The Lahore City College Zafarwal. All Rights Reserved.</p>
+        </div>
+    </div>
+
 </footer>
 
 <script src="js/script.js"></script>
