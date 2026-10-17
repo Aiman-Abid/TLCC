@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply Now | The Lahore City College Zafarwal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -110,7 +118,7 @@
             </div>
 
             <!-- Application Form Connected with Web3Forms -->
-            <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+            <form action="https://api.web3forms.com/submit" method="POST" id="admissionForm" style="display: flex; flex-direction: column; gap: 20px;">
                 
                 <!-- Web3Forms Access Key -->
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
@@ -120,17 +128,17 @@
 
                 <div>
                     <label for="fullName" style="display: block; margin-bottom: 8px; font-weight: 500;">Full Name</label>
-                    <input type="text" id="fullName" name="full_name" placeholder="Enter your full name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                    <input type="text" id="fullName" name="full_name" placeholder="Enter your full name" autocomplete="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
                 </div>
 
                 <div>
                     <label for="fatherName" style="display: block; margin-bottom: 8px; font-weight: 500;">Father's Name</label>
-                    <input type="text" id="fatherName" name="father_name" placeholder="Enter father's name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                    <input type="text" id="fatherName" name="father_name" placeholder="Enter father's name" autocomplete="additional-name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
                 </div>
 
                 <div>
                     <label for="phoneNumber" style="display: block; margin-bottom: 8px; font-weight: 500;">Phone Number (WhatsApp)</label>
-                    <input type="tel" id="phoneNumber" name="phone_number" placeholder="03XXXXXXXXX" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                    <input type="tel" id="phoneNumber" name="phone_number" placeholder="03XXXXXXXXX" autocomplete="tel" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
                 </div>
 
                 <div>
@@ -165,7 +173,7 @@
 
                 <div>
                     <label for="homeAddress" style="display: block; margin-bottom: 8px; font-weight: 500;">Home Address / City</label>
-                    <input type="text" id="homeAddress" name="address" placeholder="e.g. Darman Road, Zafarwal" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                    <input type="text" id="homeAddress" name="address" placeholder="e.g. Darman Road, Zafarwal" autocomplete="street-address" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
                 </div>
 
                 <button type="submit" class="btn primary-btn" style="width: 100%; padding: 14px; background: #073b7a; color: #fff; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: background 0.3s;">Submit Application</button>
@@ -228,7 +236,9 @@
             <form id="newsletterForm" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                 <input type="hidden" name="subject" value="New Newsletter Subscription">
-                <input type="email" name="email" id="newsletterEmail" placeholder="Your email" aria-label="Your email" required>
+                
+                <label for="newsletterEmail" class="sr-only" style="display: none;">Your Email</label>
+                <input type="email" name="email" id="newsletterEmail" placeholder="Your email" autocomplete="email" required>
                 <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
             </form>
         </div>
@@ -259,6 +269,11 @@
     <i class="fas fa-arrow-up"></i>
 </button>
 
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923322596777?text=Hello!%20I%20have%20a%20query%20about%20admissions." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp my-whatsapp-icon"></i>
+</a>
+
 <script src="js/script.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -266,10 +281,12 @@
         const course = urlParams.get('course');
         if (course) {
             const select = document.getElementById('courseSelect');
-            for (let option of select.options) {
-                if (option.value.toLowerCase() === course.toLowerCase()) {
-                    option.selected = true;
-                    break;
+            if (select) {
+                for (let option of select.options) {
+                    if (option.value.toLowerCase() === course.toLowerCase()) {
+                        option.selected = true;
+                        break;
+                    }
                 }
             }
         }
