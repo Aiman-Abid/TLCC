@@ -2268,5 +2268,8 @@ section[id],
     font-size: 26px;
   }
 }
+img {
+    content-visibility: auto;
+}
 
 
