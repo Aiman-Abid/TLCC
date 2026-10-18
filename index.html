@@ -547,11 +547,10 @@
 
     </div>
 </section>
-    <div class="map-box">
+<div class="map-box">
   <h2>Our Location</h2>
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1685.2287032707463!2d74.93568033967284!3d32.3532730536176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391c1d0003ccad31%3A0xfb9f551ae25cc308!2sLahore%20City%20College!5e0!3m2!1sen!2s!4v1792242555275!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
-
 <!-- ================= STATS ================= -->
 <section class="stats" aria-label="College statistics">
     <div class="stats-container">
@@ -770,8 +769,6 @@
         </div>
 
     </div>
-</section>
-    
 <!-- ================= CONTACT ================= -->
 <section class="contact section" id="contact">
     <div class="container">
@@ -873,67 +870,77 @@
 </section>
 </section>
 </main>
-
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
 
     <div class="container footer-grid">
 
+        <!-- ABOUT & SOCIAL LINKS -->
         <div class="footer-about">
             <div class="footer-logo">
-                <img src="res/img/img.png" alt="Lahore City College Zafarwal Logo">
-                <div>
-                    <h3>Lahore City College</h3>
-                    <p>of Zafarwal</p>
-                </div>
+                <a href="index.html#home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                    <img src="res/img/img.png" alt="Lahore City College Zafarwal Logo">
+                    <div>
+                        <h3>Lahore City College</h3>
+                        <p>of Zafarwal</p>
+                    </div>
+                </a>
             </div>
             <p>Providing quality education and preparing students for a successful future.</p>
             <div class="footer-socials">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
 
+        <!-- QUICK LINKS -->
         <div class="footer-links">
             <h3>Quick Links</h3>
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#programs">Programs</a>
-            <a href="#news-events">News &amp; Events</a>
-            <a href="#admissions">Admissions</a>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About Us</a>
+            <a href="index.html#programs">Programs</a>
+            <a href="index.html#news-events">News &amp; Events</a>
+            <a href="index.html#admissions">Admissions</a>
         </div>
 
+        <!-- USEFUL LINKS -->
         <div class="footer-links">
             <h3>Useful Links</h3>
-            <a href="#news-events">News &amp; Events</a>
-            <a href="#contact">Contact</a>
-            <a href="#">Student Portal</a>
-            <a href="#">Results</a>
-            <a href="#">Downloads</a>
+            <a href="index.html#news-events">News &amp; Events</a>
+            <a href="index.html#contact">Contact Us</a>
+            <a href="apply.html">Student Admission Portal</a>
+            <a href="apply.html">Apply Online</a>
+            <a href="tel:+923322596777">Helpline Support</a>
         </div>
 
+        <!-- NEWSLETTER FORM -->
         <div class="footer-newsletter">
             <h3>Stay Connected</h3>
             <p>Subscribe to receive college news and admission updates.</p>
-            <form id="newsletterForm">
-                <input type="email" id="newsletterEmail" placeholder="Your email" aria-label="Your email" required>
+            <form id="newsletterForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="New Newsletter Subscription">
+                <input type="email" name="email" id="newsletterEmail" placeholder="Your email" aria-label="Your email" required>
                 <button type="submit" aria-label="Subscribe"><i class="fas fa-arrow-right"></i></button>
             </form>
         </div>
 
     </div>
-    <div class="footer-credit">
-    <p>Creative By <strong>Aiman Abid</strong></p>
-    <p>Email:
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aiman1259abid@gmail.com"
-           target="_blank" rel="noopener noreferrer">
-           aiman1259abid@gmail.com
-        </a>
-    </p>
-</div>
 
+    <!-- CREATIVE CREDIT -->
+    <div class="footer-credit">
+        <p>Creative By <strong>Aiman Abid</strong></p>
+        <p>Email:
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aiman1259abid@gmail.com"
+               target="_blank" rel="noopener noreferrer">
+                aiman1259abid@gmail.com
+            </a>
+        </p>
+    </div>
+
+    <!-- FOOTER BOTTOM -->
     <div class="footer-bottom">
         <div class="container">
             <p>© <span id="year"></span> The Lahore City College Zafarwal. All Rights Reserved.</p>
@@ -951,3 +958,11 @@
 <script src="js/detail-slider.js"></script>
 </body>
 </html>  
+<!-- Floating WhatsApp Button (Fixed Number Format) -->
+<a href="https://wa.me/923322596777?text=Hello!%20I%20have%20a%20query%20about%20admissions." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <!-- FontAwesome Icon -->
+  <i class="fa-brands fa-whatsapp my-whatsapp-icon"></i>
+</a>
+
+<!-- FontAwesome Icons Link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
