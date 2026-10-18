@@ -2268,8 +2268,5 @@ section[id],
     font-size: 26px;
   }
 }
-.footer-credit a:hover {
-    color: var(--orange, #f58220);
-}
 
 
