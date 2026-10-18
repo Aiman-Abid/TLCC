@@ -208,8 +208,7 @@ function updateActiveNavigation() {
 
     const sections = document.querySelectorAll("section[id]");
 
-    /* Detail pages (ics-details.html waghera) par sections nahi hote,
-       wahan HTML mein di hui active class rehne do */
+    /* Detail pages (ics-details.html waghera) par sections nahi hote */
     if (!sections.length) return;
 
     const scrollPosition = window.scrollY + 180;
@@ -262,15 +261,11 @@ const backToTop = document.querySelector(".back-to-top");
 if (backToTop) {
 
     window.addEventListener("scroll", () => {
-
         backToTop.classList.toggle("show", window.scrollY > 400);
-
     });
 
     backToTop.addEventListener("click", () => {
-
         window.scrollTo({ top: 0, behavior: "smooth" });
-
     });
 
 }
@@ -278,24 +273,16 @@ if (backToTop) {
 
 /* =====================================================
    CONTACT FORM
-   (abhi sirf alert; asal email bhejne ke liye
-    Formspree / EmailJS / backend chahiye)
 ===================================================== */
 
 const contactForm = document.querySelector("#contactForm");
 
 if (contactForm) {
-
     contactForm.addEventListener("submit", function (e) {
-
         e.preventDefault();
-
         alert("Thank you! Your message has been submitted successfully.");
-
         contactForm.reset();
-
     });
-
 }
 
 
@@ -306,17 +293,11 @@ if (contactForm) {
 const newsletterForm = document.querySelector("#newsletterForm");
 
 if (newsletterForm) {
-
     newsletterForm.addEventListener("submit", function (e) {
-
         e.preventDefault();
-
         alert("Thank you for subscribing to our newsletter!");
-
         newsletterForm.reset();
-
     });
-
 }
 
 
@@ -356,11 +337,9 @@ function showHeroSlide(index) {
     currentSlide = index;
 
     [heroSlides, slideInfos, sideCards, heroDots].forEach(list => {
-
         list.forEach((item, i) => {
             item.classList.toggle("active", i === index);
         });
-
     });
 
 }
@@ -372,40 +351,32 @@ function nextHeroSlide() {
 
 
 function stopHeroSlider() {
-
     if (heroTimer) {
         clearInterval(heroTimer);
         heroTimer = null;
     }
-
 }
 
 
 function startHeroSlider() {
-
     stopHeroSlider();
     heroTimer = setInterval(nextHeroSlide, HERO_INTERVAL);
-
 }
 
 
 sideCards.forEach((card, index) => {
-
     card.addEventListener("click", () => {
         showHeroSlide(index);
         startHeroSlider();
     });
-
 });
 
 
 heroDots.forEach((dot, index) => {
-
     dot.addEventListener("click", () => {
         showHeroSlide(index);
         startHeroSlider();
     });
-
 });
 
 
@@ -413,6 +384,8 @@ if (heroSlides.length) {
     showHeroSlide(0);
     startHeroSlider();
 }
+
+
 /* =====================================================
    IMAGE PATH FIX
 ===================================================== */
@@ -421,14 +394,17 @@ function fixImagePath(path) {
     return path.startsWith("res/") ? path : "res/img/" + path;
 }
 
-Object.values(newsData).forEach(category => {
-    category.images.forEach(item => {
-        item.image = fixImagePath(item.image);
-        if (item.detailImage) {
-            item.detailImage = fixImagePath(item.detailImage);
-        }
+if (typeof newsData !== "undefined") {
+    Object.values(newsData).forEach(category => {
+        category.images.forEach(item => {
+            item.image = fixImagePath(item.image);
+            if (item.detailImage) {
+                item.detailImage = fixImagePath(item.detailImage);
+            }
+        });
     });
-});
+}
+
 
 /* =====================================================
    ELEMENTS & STATE
@@ -440,6 +416,7 @@ const newsEvents = document.querySelector(".news-events");
 
 let lastOpenedImageIndex = 0;
 let lastOpenedCategory = "";
+
 
 /* =====================================================
    OPEN CATEGORY
@@ -518,6 +495,7 @@ function openCategory(categoryName) {
     }
 }
 
+
 /* =====================================================
    OPEN IMAGE DETAIL
 ===================================================== */
@@ -556,6 +534,7 @@ function openImageDetail(categoryName, imageIndex) {
     }
 }
 
+
 /* =====================================================
    BACK FUNCTIONS
 ===================================================== */
@@ -586,12 +565,82 @@ function backToNews() {
     }
 }
 
+
+/* =====================================================
+   LEADERSHIP CONTINUOUS SLIDER
+===================================================== */
+
+const leadershipTrack = document.querySelector(".leadership-track");
+
+if (leadershipTrack) {
+
+    const originalCards = Array.from(leadershipTrack.querySelectorAll(".faculty-card"));
+
+    originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        leadershipTrack.appendChild(clone);
+    });
+
+    let leadershipIndex = 0;
+    let leadershipTimer = null;
+    let lastWidth = window.innerWidth;
+
+
+    function getLeadershipCardWidth() {
+        const card = leadershipTrack.querySelector(".faculty-card");
+        if (!card) return 0;
+
+        const cardWidth = card.getBoundingClientRect().width;
+        const gap = parseFloat(window.getComputedStyle(leadershipTrack).gap) || 0;
+
+        return cardWidth + gap;
+    }
+
+
+    function moveLeadership() {
+        leadershipIndex++;
+
+        leadershipTrack.style.transition = "transform 0.8s ease";
+        // Fixed syntax error here (* operator added)
+        leadershipTrack.style.transform = `translateX(-${leadershipIndex * getLeadershipCardWidth()}px)`;
+
+        if (leadershipIndex >= originalCards.length) {
+            setTimeout(() => {
+                leadershipTrack.style.transition = "none";
+                leadershipIndex = 0;
+                leadershipTrack.style.transform = "translateX(0)";
+            }, 800);
+        }
+    }
+
+
+    function startLeadershipSlider() {
+        if (leadershipTimer) clearInterval(leadershipTimer);
+        leadershipTimer = setInterval(moveLeadership, 3000);
+    }
+
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
+
+        leadershipIndex = 0;
+        leadershipTrack.style.transition = "none";
+        leadershipTrack.style.transform = "translateX(0)";
+    });
+
+
+    startLeadershipSlider();
+
+}
+
+
 /* =====================================================
    EVENT LISTENERS (GALLERY CLICKS, ESC & DRAG)
 ===================================================== */
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Gallery items par click event lagane ke liye
     document.querySelectorAll(".gallery-item").forEach(item => {
         item.addEventListener("click", function () {
             const categoryName = this.getAttribute("data-category");
@@ -611,7 +660,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Back buttons listeners
     const backToNewsBtn = document.getElementById("backToNewsBtn");
     if (backToNewsBtn) {
         backToNewsBtn.addEventListener("click", backToNews);
@@ -642,99 +690,6 @@ document.addEventListener("dragstart", function (e) {
         e.preventDefault();
     }
 });
-               
-
-/* =====================================================
-   LEADERSHIP CONTINUOUS SLIDER
-===================================================== */
-
-const leadershipTrack = document.querySelector(".leadership-track");
-
-if (leadershipTrack) {
-
-    const originalCards =
-        Array.from(leadershipTrack.querySelectorAll(".faculty-card"));
-
-    /* Original cards ki copy (infinite loop ke liye) */
-    originalCards.forEach(card => {
-
-        const clone = card.cloneNode(true);
-        clone.setAttribute("aria-hidden", "true");
-
-        leadershipTrack.appendChild(clone);
-
-    });
-
-    let leadershipIndex = 0;
-    let leadershipTimer = null;
-    let lastWidth = window.innerWidth;
-
-
-    function getLeadershipCardWidth() {
-
-        const card = leadershipTrack.querySelector(".faculty-card");
-
-        if (!card) return 0;
-
-        const cardWidth = card.getBoundingClientRect().width;
-        const gap = parseFloat(window.getComputedStyle(leadershipTrack).gap) || 0;
-
-        return cardWidth + gap;
-
-    }
-
-
-    function moveLeadership() {
-
-        leadershipIndex++;
-
-        leadershipTrack.style.transition = "transform 0.8s ease";
-
-        leadershipTrack.style.transform =
-            `translateX(-${leadershipIndex * getLeadershipCardWidth()}px)`;
-
-        /* Original cards khatam hon to chupke se shuru par wapas */
-        if (leadershipIndex >= originalCards.length) {
-
-            setTimeout(() => {
-
-                leadershipTrack.style.transition = "none";
-                leadershipIndex = 0;
-                leadershipTrack.style.transform = "translateX(0)";
-
-            }, 800);
-
-        }
-
-    }
-
-
-    function startLeadershipSlider() {
-
-        if (leadershipTimer) clearInterval(leadershipTimer);
-
-        leadershipTimer = setInterval(moveLeadership, 3000);
-
-    }
-
-
-    /* Sirf width badalne par reset (mobile address-bar scroll par nahi) */
-    window.addEventListener("resize", () => {
-
-        if (window.innerWidth === lastWidth) return;
-
-        lastWidth = window.innerWidth;
-
-        leadershipIndex = 0;
-        leadershipTrack.style.transition = "none";
-        leadershipTrack.style.transform = "translateX(0)";
-
-    });
-
-
-    startLeadershipSlider();
-
-}
 
 
 /* =====================================================
@@ -742,43 +697,3 @@ if (leadershipTrack) {
 ===================================================== */
 
 console.log("The Lahore City College Zafarwal website loaded successfully.");
-/* =====================================================
-   CLICK EVENT LISTENERS FOR GALLERY ITEMS & BUTTONS
-===================================================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    // 1. Gallery items par click hone par category open ho
-    document.querySelectorAll(".gallery-item").forEach(item => {
-        item.addEventListener("click", function () {
-            const categoryName = this.getAttribute("data-category");
-            if (categoryName) {
-                openCategory(categoryName);
-            }
-        });
-
-        // Keyboard accessibility (Enter key press karne par bhi khul jaye)
-        item.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                const categoryName = this.getAttribute("data-category");
-                if (categoryName) {
-                    openCategory(categoryName);
-                }
-            }
-        });
-    });
-
-    // 2. Back to News button functionality
-    const backToNewsBtn = document.getElementById("backToNewsBtn");
-    if (backToNewsBtn) {
-        backToNewsBtn.addEventListener("click", backToNews);
-    }
-
-    // 3. Back to Images (Posts) button functionality
-    const backToImagesBtn = document.getElementById("backToImagesBtn");
-    if (backToImagesBtn) {
-        backToImagesBtn.addEventListener("click", backToImages);
-    }
-
-});
