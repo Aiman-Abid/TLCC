@@ -336,8 +336,7 @@ const newsData = {
             }
         ]
     },
-
-    /* ---------- 06 ENVIRONMENT & LABS ---------- */
+/* ---------- 06 ENVIRONMENT & LABS ---------- */
     environment: {
         tag: "COLLEGE ENVIRONMENT & LABS",
         title: "Our College Environment & Labs",
@@ -347,24 +346,23 @@ const newsData = {
                 image: "res/img/environment1.jpg",
                 title: "Peaceful Environment",
                 description: "A peaceful environment for students.",
-                info: "• A peaceful environment helps students focus on their studies.\n• Low noise and calm surroundings support better concentration.\n• Discipline is maintained so that every student can learn comfortably.\n• A stress-free atmosphere improves mental well-being.\n• Teachers and students interact with respect and kindness.",
+                info: "• A peaceful environment helps students focus on their studies.\nLow noise and calm surroundings support better concentration.\nDiscipline is maintained so that every student can learn comfortably.\nA stress-free atmosphere improves mental well-being.\nTeachers and students interact with respect and kindness.",
                 images: ["res/img/env1_sub1.jpg", "res/img/env1_sub2.jpg", "res/img/env1_sub3.jpg"]
             },
             {
                 image: "res/img/environment2.jpg",
                 title: "Modern Labs",
                 description: "Green and attractive areas around the college.",
-                info: "• Green spaces create a pleasant environment.\n• Plants and trees keep the surroundings fresh and attractive.\n• Modern labs provide hands-on practical learning for students.\n• Lab equipment helps students understand concepts through experiments.\n• Safety rules are followed to ensure a secure lab environment.\n• Teachers guide students step by step during practical work.",
+                info: "• Green spaces create a pleasant environment.\nPlants and trees keep the surroundings fresh and attractive.\nModern labs provide hands-on practical learning for students.\nLab equipment helps students understand concepts through experiments.\nSafety rules are followed to ensure a secure lab environment.\nTeachers guide students step by step during practical work.",
                 images: ["res/img/env2_sub1.jpg", "res/img/env2_sub2.jpg", "res/img/env2_sub3.jpg"]
             },
-        
             {
                 image: "res/img/environment4.jpg",
                 title: "Student in Labs",
                 description: "A friendly environment for students.",
-                info: "• Students can learn and interact in a positive environment.\n• Teachers are approachable and always ready to help students.\n• Students are encouraged to ask questions without hesitation.\n• A supportive atmosphere builds confidence and motivation.\n• Respect and cooperation are promoted among all students.\n• Group activities help students build friendships and teamwork.",
+                info: "• Students can learn and interact in a positive environment.\nTeachers are approachable and always ready to help students.\nStudents are encouraged to ask questions without hesitation.\nA supportive atmosphere builds confidence and motivation.\nRespect and cooperation are promoted among all students.\nGroup activities help students build friendships and teamwork.",
                 images: ["res/img/env4_sub1.jpg", "res/img/env4_sub2.jpg", "res/img/env4_sub3.jpg"]
-            },
+            }
         ]
-    }
+    },  
 };
