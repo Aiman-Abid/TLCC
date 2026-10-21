@@ -669,32 +669,46 @@ section[id] { scroll-margin-top: var(--header-offset); }
 }
 
 .facility-item i { color: var(--orange); font-size: 16px; }
-
 /* ================= INTRODUCTION ================= */
 
-.college-introduction { padding: 90px 0; background: #ffffff; }
+.college-introduction { 
+    padding: 90px 0; 
+    background: #ffffff; 
+}
 
 .introduction-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: center;
+    align-items: center; /* Image aur text vertical center align rahenge */
 }
 
 .introduction-image {
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    height: 100%; /* Image box ko full height milegi */
+    display: flex;
 }
 
 .introduction-image img {
     width: 100%;
-    height: 430px;
+    height: 100%;
+    min-height: 430px; /* Text ke content ke mutabiq image minimum itni height rakhegi */
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
 }
 
-.introduction-image:hover img { transform: scale(1.05); }
+.introduction-image:hover img { 
+    transform: scale(1.05); 
+}
+
+.introduction-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; /* Text section image ke barabar area cover karega */
+}
 
 .introduction-content h2 {
     color: #222222;
@@ -704,9 +718,17 @@ section[id] { scroll-margin-top: var(--header-offset); }
     font-weight: 800;
 }
 
-.introduction-content h2 span { display: block; color: var(--navy); }
+.introduction-content h2 span { 
+    display: block; 
+    color: var(--navy); 
+}
 
-.introduction-content p { color: #555555; font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+.introduction-content p { 
+    color: #555555; 
+    font-size: 15px; 
+    line-height: 1.8; 
+    margin-bottom: 16px; 
+}
 
 /* ================= STATS ================= */
 
@@ -763,7 +785,9 @@ section[id] { scroll-margin-top: var(--header-offset); }
 
 /* ================= FACULTY SLIDER ================= */
 
-.faculty { background: var(--soft); }
+.faculty { 
+    background: var(--soft); 
+}
 
 .faculty-card {
     background: #ffffff;
@@ -771,28 +795,49 @@ section[id] { scroll-margin-top: var(--header-offset); }
     border-radius: 10px;
     padding-bottom: 25px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.faculty-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.10); }
+.faculty-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.10); 
+}
 
-.faculty-photo { height: 280px; overflow: hidden; background: #e3f3f2; }
+.faculty-photo { 
+    height: 280px; 
+    overflow: hidden; 
+    background: #e3f3f2; 
+}
 
 .faculty-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.1s ease;
+    transition: transform 0.4s ease-in-out;
 }
 
-.faculty-card:hover .faculty-photo img { transform: scale(1.05); }
+.faculty-card:hover .faculty-photo img { 
+    transform: scale(1.05); 
+}
 
-.faculty-card h3 { color: var(--ink); margin-top: 20px; font-size: 17px; padding: 0 10px; }
-.faculty-card p { color: #0d2d94; font-size: 14px; padding: 0 10px; }
+.faculty-card h3 { 
+    color: var(--ink); 
+    margin-top: 20px; 
+    font-size: 17px; 
+    padding: 0 10px; 
+}
 
-.socials { margin-top: 15px; }
+.faculty-card p { 
+    color: #0d2d94; 
+    font-size: 14px; 
+    padding: 0 10px; 
+}
+
+.socials { 
+    margin-top: 15px; 
+}
 
 .socials a {
     display: inline-flex;
@@ -804,19 +849,27 @@ section[id] { scroll-margin-top: var(--header-offset); }
     color: #ee7c47;
     border-radius: 50%;
     margin: 0 3px;
-    transition: 0.1s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-.socials a:hover { background: var(--navy); color: #ffffff; }
+.socials a:hover { 
+    background: var(--navy); 
+    color: #ffffff; 
+}
 
-.leadership-slider { overflow: hidden; padding: 12px 0 20px; }
+/* ================= SLIDER TRACK ================= */
+
+.leadership-slider { 
+    overflow: hidden; 
+    padding: 12px 0 20px; 
+}
 
 .leadership-track {
     --cards: 4;
     --gap: 25px;
     display: flex;
     gap: var(--gap);
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.4s ease-in-out;
     will-change: transform;
 }
 
@@ -2390,4 +2443,3 @@ img {
     padding: 10px 0;
   }
 }
-s
