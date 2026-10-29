@@ -564,10 +564,8 @@ function backToNews() {
         newsEvents.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 }
-
-
 /* =====================================================
-   LEADERSHIP CONTINUOUS SLIDER
+    LEADERSHIP CONTINUOUS SLIDER (FIXED & OPTIMIZED)
 ===================================================== */
 
 const leadershipTrack = document.querySelector(".leadership-track");
@@ -576,6 +574,7 @@ if (leadershipTrack) {
 
     const originalCards = Array.from(leadershipTrack.querySelectorAll(".faculty-card"));
 
+    // Clone cards for infinite loop effect
     originalCards.forEach(card => {
         const clone = card.cloneNode(true);
         clone.setAttribute("aria-hidden", "true");
@@ -585,7 +584,6 @@ if (leadershipTrack) {
     let leadershipIndex = 0;
     let leadershipTimer = null;
     let lastWidth = window.innerWidth;
-
 
     function getLeadershipCardWidth() {
         const card = leadershipTrack.querySelector(".faculty-card");
@@ -597,30 +595,31 @@ if (leadershipTrack) {
         return cardWidth + gap;
     }
 
-
     function moveLeadership() {
         leadershipIndex++;
 
-        leadershipTrack.style.transition = "transform 0.8s ease";
-        // Fixed syntax error here (* operator added)
-        leadershipTrack.style.transform = `translateX(-${leadershipIndex * getLeadershipCardWidth()}px)`;
+        const cardWidth = getLeadershipCardWidth();
+        leadershipTrack.style.transition = "transform 0.8s ease-in-out";
+        
+        // FIXED: Added multiplication (*) operator here
+        leadershipTrack.style.transform = `translateX(-${leadershipIndex * cardWidth}px)`;
 
+        // Reset loop smoothly when it reaches the end of original cards
         if (leadershipIndex >= originalCards.length) {
             setTimeout(() => {
                 leadershipTrack.style.transition = "none";
                 leadershipIndex = 0;
                 leadershipTrack.style.transform = "translateX(0)";
-            }, 800);
+            }, 800); // Matches the CSS transition duration
         }
     }
-
 
     function startLeadershipSlider() {
         if (leadershipTimer) clearInterval(leadershipTimer);
         leadershipTimer = setInterval(moveLeadership, 3000);
     }
 
-
+    // Window resize handler to prevent layout breaking
     window.addEventListener("resize", () => {
         if (window.innerWidth === lastWidth) return;
         lastWidth = window.innerWidth;
@@ -630,8 +629,10 @@ if (leadershipTrack) {
         leadershipTrack.style.transform = "translateX(0)";
     });
 
-
-    startLeadershipSlider();
+    // CRITICAL FIX: Wait for all images to fully load before calculating dimensions & starting slider
+    window.addEventListener("load", () => {
+        startLeadershipSlider();
+    });
 
 }
 
