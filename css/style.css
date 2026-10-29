@@ -783,78 +783,46 @@ section[id] { scroll-margin-top: var(--header-offset); }
 .why-card h3 { color: var(--ink); margin-bottom: 10px; }
 .why-card p { color: var(--muted); font-size: 14px; }
 
-/* ================= FACULTY SLIDER ================= */
+/* ---------- FACULTY SLIDER ---------- */
 
-.faculty { 
-    background: var(--soft); 
-}
-
-.faculty-card {
-    background: #ffffff;
-    text-align: center;
-    border-radius: 10px;
-    padding-bottom: 25px;
+.leadership-slider {
+    width: 100%;
+    min-width: 0;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Slider ko GPU acceleration dena taake rendering fast ho */
+    transform: translateZ(0);
 }
 
-.faculty-card:hover { 
-    transform: translateY(-8px); 
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.10); 
+.leadership-track {
+    box-sizing: border-box;
+    display: flex; /* Ensure karein ke cards flex row mein hain agar slider hai */
 }
 
-.faculty-photo { 
-    height: 280px; 
-    overflow: hidden; 
-    background: #e3f3f2; 
+.leadership-track .faculty-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.faculty-card h3,
+.faculty-card p {
+    overflow-wrap: anywhere;
+}
+
+/* --- Image Fast Loading & Rendering Fixes --- */
+.faculty-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Layout shift (break) hone se bachata hai */
+    background-color: #e5e7eb; /* Image load hone se pehle grey placeholder */
+    overflow: hidden;
 }
 
 .faculty-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
-    transition: transform 0.4s ease-in-out;
-}
-
-.faculty-card:hover .faculty-photo img { 
-    transform: scale(1.05); 
-}
-
-.faculty-card h3 { 
-    color: var(--ink); 
-    margin-top: 20px; 
-    font-size: 17px; 
-    padding: 0 10px; 
-}
-
-.faculty-card p { 
-    color: #0d2d94; 
-    font-size: 14px; 
-    padding: 0 10px; 
-}
-
-.socials { 
-    margin-top: 15px; 
-}
-
-.socials a {
-    display: inline-flex;
-    width: 32px;
-    height: 32px;
-    align-items: center;
-    justify-content: center;
-    background: #e3f3f2;
-    color: #ee7c47;
-    border-radius: 50%;
-    margin: 0 3px;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.socials a:hover { 
-    background: var(--navy); 
-    color: #ffffff; 
+    display: block;
+    /* Browser ko batane ke liye ke image priority par render ho */
+    content-visibility: auto;
 }
 
 /* ================= SLIDER TRACK ================= */
